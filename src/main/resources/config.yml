@@ -1,0 +1,144 @@
+# =============================================
+# TimerPVP 설정 파일 v2.1.0
+# =============================================
+
+min_players: 2
+start_countdown: 5
+
+timer:
+  farming:
+    minutes: 3
+    seconds: 10
+  preparation:
+    minutes: 5
+    seconds: 3
+  end_countdown: 3
+
+farming_world:
+  name: "time_pvp"
+  spread_min: 300
+  spread_max: 750
+  world_border: 1500
+  border_center_x: 0
+  border_center_z: 0
+
+lobby:
+  spawn:
+    world: "world"
+    x: 2000.5
+    y: 4.0
+    z: 2000.5
+  preparation_area:
+    world: "world"
+    x: 1992.5
+    y: 5.0
+    z: 2036.5
+  redstone_trigger_1:
+    world: "world"
+    x: 1981
+    y: 13
+    z: 2046
+
+pvp_arena:
+  spawn:
+    world: "world"
+    x: 2065.5
+    y: 6.0
+    z: 2005.5
+  redstone_trigger_2:
+    world: "world"
+    x: 2040
+    y: 4
+    z: 1976
+
+preparation_items:
+  - material: EXPERIENCE_BOTTLE
+    amount: 16
+  - material: BREAD
+    amount: 3
+
+# 준비 단계 스킵 투표 (/tf vote)
+skip_vote:
+  enabled: true
+
+announcements:
+  minutes: [20, 15, 10, 5]
+  seconds: [30, 15, 10, 5, 4, 3, 2, 1, 0]
+  special:
+    - minutes: 2
+      seconds: 30
+
+# 보스바 타이머
+bossbar:
+  enabled: true
+  farming_color: "GREEN"
+  preparation_color: "YELLOW"
+  pvp_color: "RED"
+  overtime_color: "PURPLE"
+
+# 사망 효과
+death_effects:
+  lightning_on_death: true
+
+# 오버타임 시스템
+overtime:
+  enabled: true
+
+  # PVP 시작 후 몇 초 뒤에 오버타임 1단계를 시작할지
+  delay_seconds: 240
+
+  # 발광 효과 (2단계 시작 시 생존자 전원에게 적용)
+  glowing: true
+
+  phase1:
+    enabled: true
+    duration_seconds: 120
+    difficulty: "HARD"
+    message: "&c&l오버타임 1단계! 난이도가 어려움으로 변경됩니다."
+
+  phase2:
+    enabled: true
+    duration_seconds: 120
+    spawn_interval_seconds: 20
+    random_spawn: true
+    spawn_radius: 20
+    spawn_list:
+      - type: "ZOMBIE"
+        count: 2
+      - type: "SKELETON"
+        count: 2
+      - type: "CREEPER"
+        count: 1
+    # weight가 높을수록 자주 등장 (random_spawn: true 일 때 사용)
+    random_pool:
+      - type: "ZOMBIE"
+        weight: 5
+      - type: "SKELETON"
+        weight: 5
+      - type: "CREEPER"
+        weight: 3
+      - type: "SPIDER"
+        weight: 2
+      - type: "WITCH"
+        weight: 1
+      - type: "PILLAGER"
+        weight: 1
+    message: "&4&l오버타임 2단계! 몬스터가 소환됩니다!"
+
+  # Phase 3: 허기 강제 고정 (게임 종료까지 무한 지속)
+  phase3:
+    enabled: true
+    hunger_interval_seconds: 1
+    message: "&6&l오버타임 3단계! 허기가 빠르게 줄어듭니다!"
+
+scoreboard:
+  enabled: true
+  title: "&f[&a타이머 &4PVP&f&l]"
+
+restrictions:
+  blocked_blocks:
+    - FURNACE
+    - ENDER_CHEST
+    - END_PORTAL_FRAME
+  block_nether_portal: true
+  block_end_portal: true

@@ -1,0 +1,23 @@
+name: TimerPVP
+version: '${project.version}'
+main: org.pdt.timerPVP.TimerPVP
+api-version: '1.21'
+# Paper 빌드 26.1.2 = Minecraft 1.21.4
+description: Timer-based PVP minigame plugin
+author: Tharu (tharu_81)
+load: POSTWORLD
+
+commands:
+  tf:
+    description: TimerPVP 메인 명령어
+    usage: /tf <start|stop|sp|vote|status|reload|debug> [...]
+    # permission 을 여기서 지정하면 permission이 없는 플레이어가
+    # /tf vote 도 사용할 수 없게 되므로 제거하고 코드에서 직접 체크
+
+permissions:
+  timerpvp.admin:
+    description: TimerPVP 관리자 권한
+    default: op
+  timerpvp.debug:
+    description: TimerPVP 디버그 명령어 권한
+    default: op
