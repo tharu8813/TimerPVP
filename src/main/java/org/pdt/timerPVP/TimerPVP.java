@@ -57,7 +57,7 @@ public final class TimerPVP extends JavaPlugin {
         tfCmd.setExecutor(mainCommand);
         tfCmd.setTabCompleter(mainCommand);
 
-        getLogger().info("TimerPVP v2.1.0 이 활성화되었습니다.");
+        getLogger().info("TimerPVP v0.0.1v (Beta) 이 활성화되었습니다.");
         getLogger().info("제작: 타루(Tharu) tharu_81");
     }
 

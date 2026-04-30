@@ -1,107 +1,152 @@
-# =============================================
-# TimerPVP 설정 파일 v2.1.0
-# =============================================
+# =============================================================
+# TimerPVP 설정 파일 v0.0.1v (Beta)
+# 제작: 타루(Tharu) tharu_81
+# =============================================================
 
+# 게임 시작에 필요한 최소 인원입니다.
 min_players: 2
+
+# 게임 시작 명령 입력 후 실제 파밍 월드로 이동하기 전 대기 시간 (초)입니다.
 start_countdown: 5
 
+# 각 게임 단계별 타이머 설정입니다.
 timer:
+  # 1단계: 파밍 단계 (자원 채집)
   farming:
     minutes: 3
     seconds: 10
+  # 2단계: 준비 단계 (PVP 전 최종 정비)
   preparation:
     minutes: 5
     seconds: 3
+  # 각 단계 전환 시 발생하는 카운트다운 시간 (초)입니다.
   end_countdown: 3
 
+# 파밍이 진행되는 월드 설정입니다.
 farming_world:
+  # 생성될 파밍 월드의 이름입니다.
   name: "time_pvp"
+  # 플레이어 분산(Spread) 최소 거리입니다.
   spread_min: 300
+  # 플레이어 분산(Spread) 최대 거리입니다.
   spread_max: 750
+  # 월드 보더(장벽)의 크기입니다.
   world_border: 1500
+  # 보더의 중심 X 좌표입니다.
   border_center_x: 0
+  # 보더의 중심 Z 좌표입니다.
   border_center_z: 0
 
+# 로비 및 준비 구역 관련 좌표 설정입니다.
 lobby:
+  # 서버 스폰 및 게임 종료 시 돌아갈 위치입니다.
   spawn:
     world: "world"
     x: 2000.5
     y: 4.0
     z: 2000.5
+  # 파밍 종료 후 이동할 준비 구역 좌표입니다.
   preparation_area:
     world: "world"
     x: 1992.5
     y: 5.0
     z: 2036.5
+  # 준비 단계 시작 시 레드스톤 블록이 설치될 좌표입니다. (맵 기믹 연동용)
   redstone_trigger_1:
     world: "world"
     x: 1981
     y: 13
     z: 2046
 
+# PVP 아레나 관련 좌표 설정입니다.
 pvp_arena:
+  # 최종 전투가 진행될 아레나 스폰 위치입니다.
   spawn:
     world: "world"
     x: 2065.5
     y: 6.0
     z: 2005.5
+  # PVP 시작 시 레드스톤 블록이 설치될 좌표입니다. (문 열림 등 기믹용)
   redstone_trigger_2:
     world: "world"
     x: 2040
     y: 4
     z: 1976
 
+# 준비 단계에서 플레이어들에게 기본으로 지급되는 아이템 목록입니다.
 preparation_items:
   - material: EXPERIENCE_BOTTLE
     amount: 16
   - material: BREAD
     amount: 3
 
-# 준비 단계 스킵 투표 (/tf vote)
+# 준비 단계 스킵 투표 시스템 설정입니다. (/tf vote 명령어로 사용)
 skip_vote:
+  # 스킵 투표 기능 활성화 여부입니다.
   enabled: true
 
+# 타이머 진행 상황을 채팅으로 알리는 시점 설정입니다.
 announcements:
+  # 남은 분 단위 알림 (예: 20분, 15분...)
   minutes: [20, 15, 10, 5]
+  # 남은 초 단위 알림 (예: 30초, 15초, 10~0초)
   seconds: [30, 15, 10, 5, 4, 3, 2, 1, 0]
+  # 특정 시각(분/초)에 알림을 보낼 특수 설정입니다.
   special:
     - minutes: 2
       seconds: 30
 
-# 보스바 타이머
+# 화면 상단 보스바 타이머 설정입니다.
 bossbar:
+  # 보스바 활성화 여부입니다.
   enabled: true
+  # 파밍 단계 보스바 색상 (GREEN, BLUE, PINK, PURPLE, RED, WHITE, YELLOW)
   farming_color: "GREEN"
+  # 준비 단계 보스바 색상
   preparation_color: "YELLOW"
+  # PVP 단계 보스바 색상
   pvp_color: "RED"
+  # 오버타임 단계 보스바 색상
   overtime_color: "PURPLE"
 
-# 사망 효과
+# 플레이어 사망 시 시각 효과 설정입니다.
 death_effects:
+  # 플레이어 사망 시 해당 위치에 번개(데미지 없음)를 소환할지 여부입니다.
   lightning_on_death: true
 
-# 오버타임 시스템
+# 오버타임 시스템 설정 (PVP가 길어질 경우 강제 종료를 유도합니다.)
 overtime:
+  # 오버타임 시스템 전체 활성화 여부입니다.
   enabled: true
 
-  # PVP 시작 후 몇 초 뒤에 오버타임 1단계를 시작할지
+  # PVP 시작 후 몇 초 뒤에 오버타임 1단계를 시작할지 결정합니다.
   delay_seconds: 240
 
-  # 발광 효과 (2단계 시작 시 생존자 전원에게 적용)
+  # 오버타임 2단계 시작 시 모든 플레이어에게 발광(Glow) 효과를 적용할지 여부입니다.
   glowing: true
 
+  # [오버타임 1단계] 난이도 조정
   phase1:
     enabled: true
+    # 1단계 지속 시간 (초)
     duration_seconds: 120
+    # 변경될 게임 난이도 (PEACEFUL, EASY, NORMAL, HARD)
     difficulty: "HARD"
+    # 단계 진입 시 출력될 메시지
     message: "&c&l오버타임 1단계! 난이도가 어려움으로 변경됩니다."
 
+  # [오버타임 2단계] 몬스터 소환
   phase2:
     enabled: true
+    # 2단계 지속 시간 (초)
     duration_seconds: 120
+    # 몬스터 소환 간격 (초)
     spawn_interval_seconds: 20
+    # true: 아래 random_pool에서 가중치 기반 소환, false: spawn_list의 모든 개체 소환
     random_spawn: true
+    # 플레이어 주변 소환 반경
     spawn_radius: 20
+    # random_spawn이 false일 때 소환될 몬스터와 수량
     spawn_list:
       - type: "ZOMBIE"
         count: 2
@@ -109,7 +154,7 @@ overtime:
         count: 2
       - type: "CREEPER"
         count: 1
-    # weight가 높을수록 자주 등장 (random_spawn: true 일 때 사용)
+    # random_spawn이 true일 때 소환될 몬스터 가중치 (weight가 높을수록 자주 등장)
     random_pool:
       - type: "ZOMBIE"
         weight: 5
@@ -125,20 +170,28 @@ overtime:
         weight: 1
     message: "&4&l오버타임 2단계! 몬스터가 소환됩니다!"
 
-  # Phase 3: 허기 강제 고정 (게임 종료까지 무한 지속)
+  # [오버타임 3단계] 허기 강제 감소 (게임 종료까지 무한 지속)
   phase3:
     enabled: true
+    # 허기가 줄어드는 주기 (초, 1레벨로 고정됨)
     hunger_interval_seconds: 1
     message: "&6&l오버타임 3단계! 허기가 빠르게 줄어듭니다!"
 
+# 화면 오른쪽 스코어보드 설정입니다.
 scoreboard:
+  # 스코어보드 활성화 여부입니다.
   enabled: true
+  # 스코어보드 상단 제목입니다.
   title: "&f[&a타이머 &4PVP&f&l]"
 
+# 게임 플레이 제한 사항 설정입니다.
 restrictions:
+  # 파밍 단계 등에서 설치/사용이 금지된 블록 목록입니다.
   blocked_blocks:
     - FURNACE
     - ENDER_CHEST
     - END_PORTAL_FRAME
+  # 지옥 포탈 생성을 차단할지 여부입니다.
   block_nether_portal: true
+  # 엔드 포탈 사용을 차단할지 여부입니다.
   block_end_portal: true

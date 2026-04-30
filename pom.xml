@@ -6,7 +6,7 @@
 
     <groupId>org.pdt</groupId>
     <artifactId>timerpvp</artifactId>
-    <version>2.0.0</version>
+    <version>0.0.1-BETA</version>
     <packaging>jar</packaging>
 
     <name>TimerPVP</name>

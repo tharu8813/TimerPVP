@@ -189,7 +189,7 @@ public class GameManager {
     private void runStartSequence() {
         MessageUtil.broadcast("&e-------------");
         MessageUtil.broadcast("제작: &6타루&8(Tharu) tharu_81");
-        MessageUtil.broadcast("버전: &a2.1.0");
+        MessageUtil.broadcast("버전: &a0.0.1v (Beta)");
         MessageUtil.broadcast("&e-------------");
         SoundUtil.soundClick();
 
