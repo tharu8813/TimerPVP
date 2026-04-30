@@ -2,7 +2,7 @@
 [![Java](https://img.shields.io/badge/Java-21%2B-blue)](https://www.oracle.com/kr/java/technologies/downloads/)
 [![Paper](https://img.shields.io/badge/Paper-1.21.4%2B-brightgreen)](https://papermc.io/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/tharu8813/TImerPVP)](https://github.com/tharu8813/TimerPVP/releases)
+[![GitHub release](https://img.shields.io/github/v/release/tharu8813/TImerPVP)](https://github.com/tharu8813/TimerPVP/last-releases)
 
 [이루의 마인크래프트](https://www.youtube.com/watch?v=szIsdCTHgh8&pp=ygUT66eI7YGsIO2DgOydtOuouHB2cA%3D%3D)에서 영감을 받아 제작된 TImer PVP를 플러그인을 통해 즐겨보세요!
 
